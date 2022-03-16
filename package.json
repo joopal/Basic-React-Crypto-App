@@ -1,0 +1,39 @@
+{
+  "name": "@joopal/pay",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "./",
+    "./eth",
+    "./www"
+  ],
+  "packageManager": "yarn@3.2.0",
+  "scripts": {
+    "www:dev": "  yarn workspace @pay/www dev",
+    "www:build": "yarn workspace @pay/www build",
+    "www:preview": "yarn workspace @pay/www preview",
+    "www:format": "yarn workspace @pay/www prettier",
+    "www:start": "yarn workspace @pay/www start",
+    "hh:chain": "yarn workspace @pay/eth chain",
+    "hh:fork": "yarn workspace @pay/eth fork",
+    "hh:node": "yarn workspace @pay/eth chain",
+    "hh:test": "yarn workspace @pay/eth test",
+    "hh:compile": "yarn workspace @pay/eth compile",
+    "hh:deploy": "yarn workspace @pay/eth deploy",
+    "hh:watch": "yarn workspace @pay/eth watch",
+    "hh:accounts": "yarn workspace @pay/eth accounts",
+    "hh:balance": "yarn workspace @pay/eth balance",
+    "hh:send": "yarn workspace @pay/eth send",
+    "hh:generate": "yarn workspace @pay/eth generate",
+    "hh:account": "yarn workspace @pay/eth account",
+    "hh:wallet": "cd eth && npx hardhat wallet",
+    "hh:flatten": "cd eth && npx hardhat flatten",
+    "hh:clean": "cd eth && npx hardhat clean",
+    "hh:mineContractAddress": "cd eth && npx hardhat mineContractAddress",
+    "postinstall": "husky install"
+  },
+  "dependencies": {
+    "husky": "^7.0.4",
+    "lerna": "^4.0.0"
+  }
+}

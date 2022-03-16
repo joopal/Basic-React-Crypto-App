@@ -1,14 +1,14 @@
 {
-  "name": "smart_contract",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@pay/eth",
+  "private": true,
+  "license": "ISC",
+  "version": "0.1.0",
+  "description": "the smart contracts and their deploy infra",
+  "author": "Zachary Fogg <me@zfo.gg>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.5",
     "@nomiclabs/hardhat-waffle": "^2.0.3",
