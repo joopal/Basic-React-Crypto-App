@@ -1,13 +1,56 @@
-//https://eth-ropsten.alchemyapi.io/v2/6X6papNNMHfiZMHYClrHv-WJfuY46SZ4
+require('dotenv').config()
+require('@nomiclabs/hardhat-waffle')
+require('@nomiclabs/hardhat-etherscan')
+require('hardhat-gas-reporter')
 
-require('@nomiclabs/hardhat-waffle');
+const { ETH_PRIVATE_KEY, ETHERSCAN_API_KEY, COIN_MARKETCAP_API_KEY, ETH_MAINNET_PRIVATE_KEY } = process.env
 
-module.exports = {
-  solidity: '0.8.0',
-  networks:{
-    ropsten:{
-      url: 'https://eth-ropsten.alchemyapi.io/v2/6X6papNNMHfiZMHYClrHv-WJfuY46SZ4',
-      accounts:['f37b450822b4b76afe2d3f2fd48d5b2ff6e97146cc468577f6de1379c228cd32']
-    }
+// This is a sample Hardhat task. To learn how to create your own go to
+// https://hardhat.org/guides/create-task.html
+task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
+  const accounts = await hre.ethers.getSigners()
+
+  for (const account of accounts) {
+    console.log(account.address)
   }
+})
+
+// You need to export an object to set up your config
+// Go to https://hardhat.org/config/ to learn more
+
+/**
+ * @type import('hardhat/config').HardhatUserConfig
+ */
+module.exports = {
+  solidity: {
+    version: '0.8.4',
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 1000,
+      },
+    },
+  },
+  paths: {
+    artifacts: './artifacts',
+  },
+  networks: {
+    hardhat: {
+      chainId: 1337,
+    },
+    //gasReporter: {
+      //currency: 'USD',
+      //coinmarketcap: COIN_MARKETCAP_API_KEY,
+      //url: 'https://eth-mainnet.alchemyapi.io/v2/GBjvplStTQ2x1FiAa5-5Qdyv2_8ZBuwe',
+    //},
+    kovan: {
+      url: 'https://kovan.infura.io/v3/3234cf4114be4f35882b0fcdf7b7e8b0',
+      accounts: [`0x${ETH_PRIVATE_KEY}`],
+    },
+    mainnet: {
+      url: 'https://mainnet.infura.io/v3/3234cf4114be4f35882b0fcdf7b7e8b0',
+      accounts: [`0x${ETH_MAINNET_PRIVATE_KEY}`],
+    },
+  },
+  etherscan: { apiKey: ETHERSCAN_API_KEY },
 }

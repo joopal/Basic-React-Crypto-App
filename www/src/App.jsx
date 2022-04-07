@@ -1,18 +1,22 @@
-
-import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
+import { TransactionProvider } from "./context/TransactionContext";
+import { Layout, Welcome, Connect } from "./components";
 
 const App = () => {
   return (
-    <div className="min-h-screen">
-      <div className="gradient-bg-welcome">
-        <Navbar />
-        <Welcome />
-      </div>
-      <Services />
-      <Transactions />
-      <Footer />
-    </div>
-  );
-};
+    <TransactionProvider>
+      <Layout.Wrapper>
+        <Layout.Navbar />
+
+        <Layout.Page>
+          <Connect />
+          <Welcome />
+        </Layout.Page>
+
+        <Layout.Footer />
+
+      </Layout.Wrapper>
+    </TransactionProvider>
+  )
+}
 
 export default App;

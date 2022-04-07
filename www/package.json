@@ -9,22 +9,40 @@
     "dev": "vite --port 3100",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "serve -s"
+    "start": "serve -s -n -C ./dist/",
+    "postinstall": "yarn build"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@tailwindcss/forms": "^0.5.0",
-    "ethers": "^5.5.4",
+    "@usedapp/core": "^0.12.1",
+    "ethers": "^5.6.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
-    "serve": "^13.0.2"
+    "serve": "^13.0.2",
+    "wagmi": "^0.2.25"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-plugin": "^7.17.7",
+    "@babel/plugin-transform-react-jsx": "^7.17.3",
+    "@emotion/babel-plugin": "^11.7.2",
+    "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5",
+    "@emotion/core": "^11.0.0",
     "@vitejs/plugin-react": "^1.0.7",
     "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.7",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
+    "babel-plugin-twin": "^1.0.2",
+    "eslint": "^8.12.0",
+    "postcss": "^8.4.12",
+    "rollup-plugin-node-polyfills": "^0.2.1",
     "tailwindcss": "^3.0.23",
-    "vite": "^2.8.0"
+    "twin.macro": "^2.8.2",
+    "vite": "^2.9.1"
   },
   "packageManager": "yarn@3.2.0"
 }

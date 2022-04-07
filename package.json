@@ -5,7 +5,8 @@
   "workspaces": [
     "./",
     "./eth",
-    "./www"
+    "./www",
+    "./newww"
   ],
   "packageManager": "yarn@3.2.0",
   "scripts": {
@@ -29,8 +30,7 @@
     "hh:wallet": "cd eth && npx hardhat wallet",
     "hh:flatten": "cd eth && npx hardhat flatten",
     "hh:clean": "cd eth && npx hardhat clean",
-    "hh:mineContractAddress": "cd eth && npx hardhat mineContractAddress",
-    "postinstall": "husky install"
+    "hh:mineContractAddress": "cd eth && npx hardhat mineContractAddress"
   },
   "dependencies": {
     "husky": "^7.0.4",
